@@ -1,0 +1,31 @@
+var myArray = Array<Int>()
+for i in 1...255{
+    myArray.append(i)
+}
+print(myArray)
+
+swapTwoValues()
+print(myArray)
+
+for _ in 1...100{
+    swapTwoValues()
+}
+print(myArray)
+
+for (index,value) in myArray.enumerated(){
+    if (value == 42){
+        print("We found the answer to the Ultimate Question of Life, the Universe, and Everything at index \(index)")
+        myArray.remove(at: index)
+    }
+}
+print(myArray)
+
+func swapTwoValues(){
+    let rnIndex1 = Int(arc4random_uniform(256))
+    let rnIndex2 = Int(arc4random_uniform(256))
+    
+    let valueOf1stIndex = myArray[rnIndex1]
+    
+    myArray[rnIndex1] = myArray[rnIndex2]
+    myArray[rnIndex2] = valueOf1stIndex
+}
